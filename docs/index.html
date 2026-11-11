@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGEN - Sobre o Projeto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --vermelho-racing: #E63946;
+            --preto-puro: #0a0a0a;
+            --vidro-bg: rgba(15, 15, 15, 0.85);
+            --vidro-borda: rgba(255, 255, 255, 0.1);
+            --texto-claro: #f8f9fa;
+            --texto-mutado: #adb5bd;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--texto-claro);
+            background-color: var(--preto-puro);
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(20,20,20,0.95) 100%), url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-bottom: 2px solid var(--vermelho-racing);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        header h1 span { color: var(--vermelho-racing); }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--texto-mutado);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-box {
+            background: var(--vidro-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--vidro-borda);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            text-transform: uppercase;
+            border-left: 5px solid var(--vermelho-racing);
+            padding-left: 15px;
+            margin-bottom: 1.5rem;
+            color: #fff;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--vermelho-racing);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p { font-size: 1.1rem; margin-bottom: 1rem; color: #ddd; }
+
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.5rem; font-size: 1.1rem; color: #ddd; }
+        li { margin-bottom: 0.5rem; }
+
+        code {
+            background: rgba(255,255,255,0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #ffb703;
+            font-family: monospace;
+        }
+
+        .media-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .media-container img, .media-container video {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--vidro-borda);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            transition: transform 0.3s;
+        }
+
+        .media-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .media-caption {
+            font-size: 0.9rem;
+            color: var(--texto-mutado);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .alert-box {
+            background: rgba(230, 57, 70, 0.1);
+            border-left: 4px solid var(--vermelho-racing);
+            padding: 15px;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Auto<span>GEN</span></h1>
+        <p>A inteligência artificial auxiliando você a encontrar o carro perfeito, com o preço justo.</p>
+    </header>
+
+    <main>
+        <section class="section-box">
+            <h2>A Ideia e Motivação</h2>
+            <p>Comprar um carro usado no Brasil é um desafio. O comprador comum frequentemente se vê perdido entre o preço idealizado da <strong>Tabela FIPE</strong> e a realidade dos preços cobrados no mercado. Além disso, avaliar se um modelo tem um bom custo-benefício, se a manutenção é acessível ou se existem opções melhores na mesma faixa de preço exige horas de pesquisa.</p>
+            <p><strong>A solução?</strong> O AutoGEN combina três forças poderosas: dados oficiais (API da Tabela FIPE), dados reais de mercado (Web Scraping de anúncios locais da OLX via backend Python Flask) e a inteligência analítica do modelo LLM Gemini do Google.</p>
+            <p>O resultado é uma plataforma que não apenas joga os dados na tela, mas atua como um consultor automotivo, entregando um veredito direto, prático e confiável sobre a viabilidade da compra.</p>
+        </section>
+
+        <section class="section-box">
+            <h2>Como Funciona o Sistema</h2>
+            
+            <h3>1. Inserção das Chaves de API</h3>
+            <p>A aplicação requer uma chave da API do Google Gemini para funcionar. Pensando em segurança e estabilidade, o sistema suporta o <strong>rodízio de chaves</strong> (inseridas separadas por linha ou vírgula). Se uma chave exceder a cota, o sistema pula automaticamente para a próxima.</p>
+            <div class="alert-box">
+                <strong>Como obter sua chave do Gemini:</strong>
+                <ol>
+                    <li>Acesse o <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color: #ffb703;">Google AI Studio</a> e faça login com sua conta Google.</li>
+                    <li>No menu lateral esquerdo, clique em <strong>Get API key</strong>.</li>
+                    <li>Clique no botão azul <strong>Create API key</strong>, vincule a um projeto existente (ou crie um novo) e copie a string gerada (começa com <code>AIza...</code>).</li>
+                </ol>
+            </div>
+            <div class="media-container">
+                <img src="ChaveApi.png" alt="Área de inserção de chaves da API">
+                <p class="media-caption">Interface limpa para inserção de múltiplas chaves API, garantindo alta disponibilidade.</p>
+            </div>
+
+            <h3>2. Seleção do Veículo (Integração FIPE)</h3>
+            <p>O usuário seleciona a Marca, o Modelo e o Ano do carro através de menus suspensos (dropdowns). Esses campos são alimentados em tempo real (em cascata) consumindo a API pública da Tabela FIPE. Só é possível avançar quando os três campos estiverem preenchidos e validados.</p>
+            <div class="media-container">
+                <img src="Seleção de Modelo.png" alt="Dropdowns de seleção de modelo">
+                <p class="media-caption">Os menus são bloqueados sequencialmente para evitar requisições inválidas à API da FIPE.</p>
+            </div>
+
+            <h3>3. A Avaliação Especializada (IA)</h3>
+            <p>Com os dados do mercado em mãos, o Gemini processa as informações e retorna a tela principal. O primeiro widget gerado é o veredito de <strong>Custo-Benefício</strong> e os <strong>Pontos Importantes</strong>, destacando rapidamente se o carro é uma boa compra, quais os problemas crônicos a observar e as qualidades do modelo.</p>
+            <div class="media-container">
+                <img src="Avaliação do carro.png" alt="Veredito e resumo do Gemini">
+                <p class="media-caption">A cor da interface reage à IA: Borda verde para "Bom" e vermelha para "Ruim".</p>
+            </div>
+
+            <h3>4. Web Scraping de Anúncios Reais</h3>
+            <p>Não basta saber a teoria, é preciso ver a prática. Uma API própria desenvolvida em Python intercepta a busca e realiza um <em>Web Scraping</em> na OLX para trazer anúncios reais daquele modelo/ano, exibindo o Preço, a Quilometragem e um link direto para o anúncio real do vendedor.</p>
+            <div class="media-container">
+                <img src="Anuncios.png" alt="Tabela de anúncios raspados da OLX">
+                <p class="media-caption">Dados reais do mercado injetados na interface para comparação imediata com a FIPE.</p>
+            </div>
+
+            <h3>5. Sugestões de Alternativas</h3>
+            <p>Se o carro escolhido for uma má opção, ou se o usuário quiser expandir os horizontes, o Gemini analisa a faixa de preço e sugere veículos de categorias similares, listando suas maiores vantagens e desvantagens de forma direta, sem linguagem técnica excessiva.</p>
+            <div class="media-container">
+                <img src="Alternativas.png" alt="Cards de modelos alternativos na mesma faixa de preço">
+                <p class="media-caption">Cards estruturados para comparação rápida entre as alternativas de mercado.</p>
+            </div>
+        </section>
+
+        <section class="section-box">
+            <h2>Rodando o Projeto (Tutorial)</h2>
+            <p>Por se tratar de um projeto que utiliza o consumo de APIs externas (CORS) e execução de Web Scraping, é necessário rodar um servidor web local para o HTML e um servidor Flask para o Python.</p>
+            
+            <h3>Preparando o Ambiente</h3>
+            <ol>
+                <li><strong>Live Server (VS Code):</strong> Abra seu Visual Studio Code, vá na aba de Extensões (<code>Ctrl+Shift+X</code>), procure por "Live Server" e instale. Clique no botão <em>"Go Live"</em> na barra inferior direita do VS Code com o arquivo <code>index.html</code> aberto.</li>
+                <li><strong>Instalando o Miniconda:</strong> <a href="https://docs.anaconda.com/free/miniconda/" target="_blank" style="color:#ffb703;">Baixe o Miniconda</a> e instale-o no seu computador (ele gerenciará o Python para não conflitar com seu sistema).</li>
+                <li><strong>Bibliotecas Python:</strong> Abra o aplicativo <em>Anaconda Prompt</em>, navegue até a pasta do projeto (usando <code>cd caminho/da/pasta</code>) e execute: 
+                <br><code>pip install flask flask-cors beautifulsoup4 requests</code></li>
+                <li><strong>Ligando a API Local:</strong> No mesmo terminal, digite <code>python Api.py</code>. Se aparecer algo como <em>"Running on http://127.0.0.1:8000"</em>, seu backend está pronto!</li>
+            </ol>
+
+            <h3>Demonstração em Vídeo</h3>
+            <p>Abaixo você acompanha todo esse fluxo acontecendo na prática, desde a inicialização dos servidores até a consulta ao Gemini gerando os componentes visuais.</p>
+            <div class="media-container">
+                <video controls width="100%">
+                    <source src="VideoExplicativo.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <p class="media-caption">Execução completa: Ativação dos servidores, inserção de chave e veredito final.</p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

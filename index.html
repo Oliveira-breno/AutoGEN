@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisador de Carros Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="inicio">
+    <nav class="navbar">
+        <div class="nav-logo">AUTO<span>GEN</span></div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#chaves">Chaves API</a></li>
+            <li><a href="#busca-fipe">FIPE</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Analisador de Carros 🚗</h1>
+        <div class="api-key-container" id="chaves">
+            <label for="geminiApiKeys">Chaves API Gemini (Insira várias separadas por vírgula ou Enter):</label>
+            <textarea id="geminiApiKeys" rows="4" placeholder="AIzaSy...\nAIzaSy..."></textarea>
+        </div>
+    </header>
+
+    <main>
+        <section id="inputs-carro">
+            <div id="busca-fipe">
+                <label>Marca:</label>
+                <select id="marca"><option value="">Carregando marcas...</option></select>
+                
+                <label>Modelo:</label>
+                <select id="modelo" disabled><option value="">Selecione a Marca primeiro</option></select>
+                
+                <label>Ano:</label>
+                <select id="ano" disabled><option value="">Selecione o Modelo primeiro</option></select>
+                
+                <button id="botaoEnter" disabled>Analisar Custo-Benefício</button>
+            </div>
+        </section>
+
+        <section id="conteudo">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Analisador Automotivo Inteligente. Desenvolvido para o trabalho de Web Services.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
